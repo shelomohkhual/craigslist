@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
   # Handles the POST request when user submits the Sign Up form. Get user info from the params hash, creates a new user, signs them in, redirects them. 
   post '/registrations' do
    user = User.create(name: params["name"], email: params["email"])
-   user.password = params["password"]
+   user.password= params["password"]
    user.save
    session[:user_id]=user.id
    redirect 'users/home'
@@ -55,6 +55,10 @@ class ApplicationController < Sinatra::Base
   get '/users/home' do
     @user = User.find(session[:user_id])
     erb :'/users/home'
+  end
+
+  get '/posts/create_post' do
+    erb :'/posts/create_post'
   end
 
 end

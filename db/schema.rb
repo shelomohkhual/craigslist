@@ -20,15 +20,17 @@ ActiveRecord::Schema.define(version: 2019_07_09_072122) do
     t.integer "user_id"
     t.integer "category_id"
     t.string "post_name"
-    t.text "description"
-    t.text "location"
+    t.string "description"
+    t.string "location"
     t.integer "payment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.text "password"
+    t.string "password"
   end
 
 end

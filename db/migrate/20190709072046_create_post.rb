@@ -4,10 +4,10 @@ class CreatePost < ActiveRecord::Migration[5.2]
       t.integer  :user_id
       t.integer  :category_id
       t.string :post_name
-      t.text  :description
-      t.text :location
+      t.string  :description
+      t.string :location
       t.integer :payment
-      t.timestamp
+      t.timestamps
     end
   end
 end

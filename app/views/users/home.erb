@@ -1,5 +1,84 @@
 
-Welcome, <%=@user.name%>!
+
 
 <a href='/sessions/logout'>sign out</a>
+
+
+<!DOCTYPE html>
+  <html>
+
+    <head>
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+      <div class="topnav"> 
+        <div><a href="/posts/create_post">CREATE_POST</a></div>
+        <div><a href="/registrations/signup">SIGNUP</a></div>
+        <div><a href="/sessions/login">LOGIN</a></div>
+        <div id="profile">Welcome, <%#@user.name%>!</div>
+      </div>
+
+      
+      <div class="header">
+        <h1>C A R I G L I S T</h1>
+      </div>
+     
+
+          <div class="index row">
+           <div class="column">
+              <h3>CATE 1</h3>
+              <ul>
+                <li><a href="#">sub_cate-1</a></li>
+                <li><a href="#">sub_cate-2</a></li>
+                <li><a href="#">sub_cate-3</a></li>
+              </ul>
+            </div>
+
+            <div class="column">
+              <h3>CATE 2</h3>
+              <ul>
+                <li><a href="#">sub_cate-1</a></li>
+                <li><a href="#">sub_cate-2</a></li>
+                <li><a href="#">sub_cate-3</a></li>
+              </ul>
+            </div>
+
+            <div class="column">
+              <h3>CATE 3</h3>
+              <ul>
+                <li><a href="#">sub_cate-1</a></li>
+                <li><a href="#">sub_cate-2</a></li>
+                <li><a href="#">sub_cate-3</a></li>
+              </ul>
+            </div>
+
+            <div class="column">
+              <h3>CATE 4</h3>
+              <ul>
+                <li><a href="#">sub_cate-1</a></li>
+                <li><a href="#">sub_cate-2</a></li>
+                <li><a href="#">sub_cate-3</a></li>
+              </ul>
+            </div>
+
+            <div class="column">
+              <h3>CATE 5</h3>
+              <ul>
+                <li><a href="#">sub_cate-1</a></li>
+                <li><a href="#">sub_cate-2</a></li>
+                <li><a href="#">sub_cate-3</a></li>
+              </ul>
+            </div>
+          </div>
+
+
+      <%# </div> %>
+
+    </body>
+
+  </html>
+
 

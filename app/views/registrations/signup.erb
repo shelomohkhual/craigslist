@@ -1,17 +1,36 @@
-<h1>Sign Up Below:</h1>
+<!DOCTYPE html>
+  <html>
 
+    <head>
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
 
-<form method="POST" action="/registrations">
+    <body>
+      <div class="topnav"> 
+        <div><a href="/home">HOME</a></div>
+        <div><a href="/sessions/login">LOGIN</a></div>
+      </div>
+        <div class="form">
+        <form method="POST" action="/registrations">
 
-Name: 
-<input type="text" name="name">
-<br>
-Email: 
-<input type="email" name="email">
-<br>
-Password: 
-<input type="password" name="password">
-<br>
-<input type="submit" value="Sign Up">
-<br>
-</form>
+        Name: 
+        <input type="text" name="name">
+        <br>
+        <br>
+        Email: 
+        <input type="email" name="email">
+        <br>
+        <br>
+        Password: 
+        <input type="password" name="password">
+        <br>
+        <br>
+        <input class="button" type="submit" value="Sign Up">
+        <br>
+        </form>
+        </div>
+        </body>
+
+  </html>
