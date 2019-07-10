@@ -2,19 +2,19 @@
 
 <div class="form">
   <form method="POST" action="/registrations">
-    Name:
+    <%# Name: %>
     <br>
-    <input type="text" name="name">
+    <input type="text" name="name" placeholder="Name" style="border: 1px solid black;padding:10px;width:400px;">
+    <%# <br> %>
     <br>
+    <%# Email: %>
     <br>
-    Email:
+    <input type="email" placeholder="Email" name="email" style="border: 1px solid black;padding:10px;width:400px;">
     <br>
-    <input type="email" name="email">
+    <%# <br> %>
+    <%# Password: %>
     <br>
-    <br>
-    Password:
-    <br>
-    <input type="password" name="password">
+    <input type="password" placeholder="Password" name="password" style="border: 1px solid black;padding:10px;width:400px;">
     <br>
     <br>
     <input class="button" type="submit" value="Sign Up">

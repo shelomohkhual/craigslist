@@ -76,7 +76,11 @@ class ApplicationController < Sinatra::Base
   post '/posts/create_post' do 
     @user = User.find(session[:user_id])
     newpost = Post.create(user_id: @user.id,subcategory_id: params["subcategory_id"],post_name: params["post_name"],description: params["description"],location: params["location"],payment: params["payment"])
+    if newpost.valid?
     redirect '/posts/my_posts'
+    else
+      redirect '/posts/create_post'
+    end
   end
 
   get '/posts/my_posts' do

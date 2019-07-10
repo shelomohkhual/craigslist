@@ -2,14 +2,19 @@
 
 <div class="form">
   <form method="POST" action="/posts/create_post">
-    Title:<br>
-    <input type="text" name="post_name"><br>
-    Description:<br>
-    <input type="text" name="description"<br><br>
+    <%# Title:<br> %>
+    <input type="text" placeholder="Title" style="border: 1px solid black;padding:10px;width:400px" name="post_name">
     <br>
+    <br>
+    <%# Description:<br> %>
+    <%# <input type="text" name="description"> %>
+    <textarea type="text" name="description" placeholder="Description" style="border: 1px solid black;padding:10px;width:400px;height:80px;"></textarea><br>
+    <br>
+    
 
-    <label for="Category">Category</label>
-    <select name="subcategory_id">
+    <%# <label for="Category">Category</label> %>
+    <select name="subcategory_id" style='border:1px solid black;padding:10px;width:400px;height:30px;'>
+      <option value="" disabled selected>Category</option>
         <optgroup label="Jobs">
           <option value="1">Web Developer</option>
           <option value="2">Web Designer</option>
@@ -23,13 +28,15 @@
           <option value="6">Toys</option>
         </optgroup>
         </select>
-    </select><br>
-
-    Address/Location:<br>
-    <input type="text" name="location"><br><br>
-    Payment:<br>
-    <input type="text" name="payment"><br><br>
-    <input type="submit">
+    </select>
+    <br>
+    <br>
+    <%# Address/Location:<br> %>
+    <input type="text" placeholder="Address/Location" name="location" style="border: 1px solid black;padding:10px;width:400px;"><br><br>
+    <%# Payment:<br> %>
+    <input type="text" placeholder="Payment" name="payment" style="border: 1px solid black;padding:10px;width:400px;"><br><br>
+    <input class='button' type="submit" >
   </form>
   </div>
 </div>
+

@@ -1,7 +1,7 @@
 <h3 style='align:center;padding:10px;margin:10px;'><%=@post.post_name.capitalize%></h3>
 
 <div class="form">
-    <%= "Created: #{@post.created_at}" %>
+    <p style="font-style: italic;">Created: <%=@post.created_at%></p>
     <br>
     <p><%=@post.description%><p>
     <br>
