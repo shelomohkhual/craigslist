@@ -12,15 +12,17 @@ class ApplicationController < Sinatra::Base
 
   # Renders the home or index page
   get '/' do
-    erb :home
+    @categories = Category.all
+    erb :home, layout: :template
   end
 
   get '/home' do
-    erb :home
+    @categories = Category.all
+    erb :home, layout: :template
   end
   # Renders the sign up/registration page in app/views/registrations/signup.erb
   get '/registrations/signup' do
-    erb :'/registrations/signup'
+    erb :'/registrations/signup', layout: :template
   end
 
   # Handles the POST request when user submits the Sign Up form. Get user info from the params hash, creates a new user, signs them in, redirects them. 
@@ -34,7 +36,7 @@ class ApplicationController < Sinatra::Base
   
   # Renders the view page in app/views/sessions/login.erb
   get '/sessions/login' do
-   erb :'sessions/login'
+   erb :'sessions/login', layout: :template
   end
 
   # Handles the POST request when user submites the Log In form. Similar to above, but without the new user creation.
@@ -57,12 +59,17 @@ class ApplicationController < Sinatra::Base
   # Renders the user's individual home/account page. 
   get '/users/home' do
     @user = User.find(session[:user_id])
-    erb :'/users/home'
+    if @user
+      @categories = Category.all
+      erb :'/users/home', layout: :template
+    else
+      redirect "/sessions/login"
+    end
   end
 
   get '/posts/create_post' do
     @user = User.find(session[:user_id])
-    erb :'/posts/create_post'
+    erb :'/posts/create_post', layout: :template
   end
 
   post '/posts/create_post' do 
@@ -74,18 +81,33 @@ class ApplicationController < Sinatra::Base
 
   get '/posts/my_posts' do
     @user = User.find(session[:user_id])
-    erb :'/posts/my_posts'
+    erb :'/posts/my_posts', layout: :template
   end
 
   get '/posts/:id' do
-    @user = User.find(session[:user_id])
-    @post = Post.find( params[:id].to_i)
-    erb :'/posts/post'
+
+    if @user
+      @user = User.find(session[:user_id])
+      @post = Post.find(params[:id].to_i)
+      erb :'/posts/post', layout: :template
+    else
+      @post = Post.find(params[:id].to_i)
+      erb :'/posts/post', layout: :template
+    end
   end
 
-  get '/subcategories/subcategory_posts' do
-    @subcategory = Subcategory.find(session[:subcategory_id])
-    erb :'/subcategories/subcategory_posts'
+  get '/subcategories/subcategory_posts/:id' do
+    if @user
+      @user = User.find(session[:user_id])
+      @sub_posts = Post.where(subcategory_id:(params[:id].to_i))
+      @subcategory = Subcategory.find(params[:id].to_i)
+      erb :'/subcategories/subcategory_posts', layout: :template
+  else 
+    @sub_posts = Post.where(subcategory_id:(params[:id].to_i))
+      @subcategory = Subcategory.find(params[:id].to_i)
+      erb :'/subcategories/subcategory_posts', layout: :template
+  end
+    
   end
 
 end

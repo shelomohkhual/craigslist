@@ -1,29 +1,13 @@
-<!DOCTYPE html>
-  <html>
 
-    <head>
-      <link rel="stylesheet" href="/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-
-    <body>
-      <div class="topnav"> 
-      <div><a href="/users/home">HOME</a></div>
-        <div><a href="/posts/my_posts">MY_POSTS</a></div>
-        <div id="profile"><a href='/sessions/logout'>SIGNOUT</a></div>
-        <div id="profile"><a href='/users/home'>WELCOME, <%=@user.name.capitalize%>!</a></div>
-      </div>
-
-<h3 style='align:center;padding:10px;margin:10px;'><%=@subcategory.name.upcase%></h3>
+<%if @user%>
+<% nil %>
+<% else %>
+<% nil %>
+<% end %>
+<h3 style='align:center;padding:10px;margin:10px;'><%=@subcategory.name.upcase%></h3> 
 
 <div class="form">
-<%# <%posts = Post.where(post_id: @subcategory[:id])%> %>
-<%# <%posts.each do |post|%> %>
-<%# <%= puts posts%> %>
-<%# <a href='<%=post%>'><%#post.title%></a> %>
-<%# <%end %> %>
+<%@sub_posts.each do |post|%>
+<a href='/posts/<%=post.id%>'><%=post.post_name%></a><br>
+<%end %>
 </div>
-
-</body>
-</html>

@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-  <html>
 
-    <head>
-      <link rel="stylesheet" href="/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-
-    <body>
-      <div class="topnav"> 
-        <div><a href="/users/home">HOME</a></div>
-        <div><a href="/posts/my_posts">MY_POSTS</a></div>
-        <div id="profile"><a href='/sessions/logout'>SIGNOUT</a></div>
-        <div id="profile"><a href='/users/home'>WELCOME, <%=@user.name.capitalize%>!</a></div>
-      </div>
 
 <h3 style='align:center;padding:10px;margin:10px;'>CREATE NEW POST</h3>
+
 <div class="form">
-  
   <form method="POST" action="/posts/create_post">
     Title:<br>
     <input type="text" name="post_name"><br>
@@ -25,12 +10,6 @@
     <input type="text" name="description"<br><br>
     <br>
 
-    <%# <label for="Catagory">Catagory</label>
-    <select id="Catagory" name="catagory_id">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
-    </select><br> %>
     <label for="Category">Category</label>
     <select name="subcategory_id">
         <optgroup label="Jobs">
@@ -46,17 +25,6 @@
           <option value="6">Toys</option>
         </optgroup>
         </select>
-
-    <%# <label for="Catagory">Catagory</label>
-    <select id="Catagory" name="subcatagory_id">
-      <%cate_lists=Catagory.all %>
-      <%#cate_lists.each do |cate| %>
-        <%# <optgroup label="<%=cate_name.name%>
-          <%#subcate_lists=Subcatagory.all%>
-          <%#subcate_lists.each do |sub_cate| %>
-            <%# <option value="subcatagory_id"><%sub_cate%>
-
-
     </select><br>
 
     Address/Location:<br>
@@ -67,5 +35,3 @@
   </form>
   </div>
 </div>
-</body>
-</html>

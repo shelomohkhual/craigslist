@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <% if @user %>
+<div class="topnav"> 
+      <div><a href="/users/home">HOME</a></div>
+       <div><a href="/posts/create_post">CREATE_POST</a></div>
+        <div><a href="/posts/my_posts">MY_POSTS</a></div>
+        <div id="profile"><a href='/sessions/logout'>SIGNOUT</a></div>
+        <div id="profile"><a href='/users/home'>WELCOME, <%=@user.name.capitalize%>!</a></div>
+      </div>
+<% else %>
+<div class="topnav"> 
+<div><a href="/home">HOME</a></div>
+  <div><a href="/registrations/signup">SIGNUP</a></div>
+  <div><a href="/sessions/login">LOGIN</a></div>
+</div>
+<% end %>
+
+<div class="header">
+  <h1>C R A I G S L I S T</h1>
+</div>
+
+    <%=yield%>
+    <body>
+</html>
