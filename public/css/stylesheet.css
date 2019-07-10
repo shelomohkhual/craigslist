@@ -75,16 +75,13 @@ h2, h3 {
 }
 
 .form {
-
   margin: auto;
   padding: 80px;
   width: 400px;
   height: 400px;
   /* border: 1px solid black; */
 }
-form {
-  
-}
+
 .button{
   background-color: black;
   color: white;
@@ -93,3 +90,17 @@ form {
   text-align: right;
   float: right;
 }
+
+/* .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-block-color: black;
+}
+.footer a{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 3px;
+} */

@@ -1,10 +1,8 @@
-
-
 <h3 style='align:center;padding:10px;margin:10px;'>MY POSTS</h3>
 
 <div class="form">
 <%posts = Post.where(user_id: @user.id)%>
 <%posts.each_with_index do |post,index| %>
-<a href='/posts/<%=post.id%>'><%="#{index+1}. #{post.post_name.capitalize}"%></a><br>
+    <a href='/posts/<%=post.id%>'><%="#{index+1}. #{post.post_name.capitalize}"%></a><br>
 <%end %>
 </div>

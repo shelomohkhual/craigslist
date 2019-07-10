@@ -1,13 +1,7 @@
-
-<%if @user%>
-<% nil %>
-<% else %>
-<% nil %>
-<% end %>
 <h3 style='align:center;padding:10px;margin:10px;'><%=@subcategory.name.upcase%></h3> 
 
 <div class="form">
-<%@sub_posts.each do |post|%>
-<a href='/posts/<%=post.id%>'><%=post.post_name%></a><br>
-<%end %>
+    <%@sub_posts.each do |post|%>
+        <a href='/posts/<%=post.id%>'><%=post.post_name%></a><br>
+    <%end %>
 </div>

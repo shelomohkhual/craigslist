@@ -1,16 +1,13 @@
-
-      <div class="index row">
-        
-        <%@categories.each do |cate|%>
-        <div class="column">
-          <h3><%=cate.name%></h3>
-          <hr>
-          <%subs=cate.subcategories.count%>
-          
-          <%subs.times do |n|%>
+<div class="index row">
+  <%@categories.each do |cate|%>
+    <div class="column">
+      <h3><%=cate.name%></h3>
+      <hr>
+      <%subs=cate.subcategories.count%>
+        <%subs.times do |n|%>
           <ul>
-            <li><a href="/subcategories/subcategory_posts/<%=cate.subcategories[n].id%>"><%=cate.subcategories[n].name%></a></li>
+          <li><a href="/subcategories/subcategory_posts/<%=cate.subcategories[n].id%>"><%=cate.subcategories[n].name%></a></li>
           </ul>
-          <%end%>
-        </div>
-        <%end%>
+    <%end%>
+</div>
+  <%end%>

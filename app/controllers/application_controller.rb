@@ -20,6 +20,7 @@ class ApplicationController < Sinatra::Base
     @categories = Category.all
     erb :home, layout: :template
   end
+  
   # Renders the sign up/registration page in app/views/registrations/signup.erb
   get '/registrations/signup' do
     erb :'/registrations/signup', layout: :template
@@ -58,8 +59,8 @@ class ApplicationController < Sinatra::Base
 
   # Renders the user's individual home/account page. 
   get '/users/home' do
-    @user = User.find(session[:user_id])
-    if @user
+    if session[:user_id] != nil
+      @user = User.find(session[:user_id])
       @categories = Category.all
       erb :'/users/home', layout: :template
     else
@@ -75,7 +76,6 @@ class ApplicationController < Sinatra::Base
   post '/posts/create_post' do 
     @user = User.find(session[:user_id])
     newpost = Post.create(user_id: @user.id,subcategory_id: params["subcategory_id"],post_name: params["post_name"],description: params["description"],location: params["location"],payment: params["payment"])
-    # byebug
     redirect '/posts/my_posts'
   end
 
@@ -85,8 +85,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/posts/:id' do
-
-    if @user
+    if session[:user_id] != nil
       @user = User.find(session[:user_id])
       @post = Post.find(params[:id].to_i)
       erb :'/posts/post', layout: :template
@@ -97,17 +96,16 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/subcategories/subcategory_posts/:id' do
-    if @user
+    if session[:user_id] != nil
       @user = User.find(session[:user_id])
       @sub_posts = Post.where(subcategory_id:(params[:id].to_i))
       @subcategory = Subcategory.find(params[:id].to_i)
       erb :'/subcategories/subcategory_posts', layout: :template
-  else 
+    else 
     @sub_posts = Post.where(subcategory_id:(params[:id].to_i))
       @subcategory = Subcategory.find(params[:id].to_i)
       erb :'/subcategories/subcategory_posts', layout: :template
-  end
-    
+    end
   end
 
 end

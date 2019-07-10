@@ -6,26 +6,35 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
-    <% if @user %>
-<div class="topnav"> 
-      <div><a href="/users/home">HOME</a></div>
-       <div><a href="/posts/create_post">CREATE_POST</a></div>
+<%# NAVBAR %>
+    <% if session[:user_id] != nil %>
+      <div class="topnav"> 
+        <div><a href="/users/home">HOME</a></div>
+        <div><a href="/posts/create_post">CREATE_POST</a></div>
         <div><a href="/posts/my_posts">MY_POSTS</a></div>
         <div id="profile"><a href='/sessions/logout'>SIGNOUT</a></div>
-        <div id="profile"><a href='/users/home'>WELCOME, <%=@user.name.capitalize%>!</a></div>
+        <div id="profile"><a href='/users/home'>WELCOME, <%=@user.name.upcase%>!</a></div>
       </div>
-<% else %>
-<div class="topnav"> 
-<div><a href="/home">HOME</a></div>
-  <div><a href="/registrations/signup">SIGNUP</a></div>
-  <div><a href="/sessions/login">LOGIN</a></div>
-</div>
-<% end %>
+    <% else %>
+      <div class="topnav"> 
+        <div><a href="/home">HOME</a></div>
+        <div><a href="/registrations/signup">SIGNUP</a></div>
+        <div><a href="/sessions/login">LOGIN</a></div>
+      </div>
+    <% end %>
 
-<div class="header">
-  <h1>C R A I G S L I S T</h1>
-</div>
+<%# HEADING %>
+    <div class="header">
+      <h1>C R A I G S L I S T</h1>
+    </div>
 
+<%# CONTENT %>
     <%=yield%>
-    <body>
+
+<%# FOOTER %>
+    <%# <div class='footer'>
+      <a href="https://recodemalaysia.com">© COPYRIGHT 2019 | RECODEMALAYSIA.COM</a>
+    </div> %>
+
+  </body>
 </html>
