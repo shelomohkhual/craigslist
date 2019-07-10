@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_072122) do
+ActiveRecord::Schema.define(version: 2019_07_09_160447) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_072122) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "category_id"
+    t.integer "subcategory_id"
     t.string "post_name"
     t.string "description"
     t.string "location"
@@ -27,10 +27,15 @@ ActiveRecord::Schema.define(version: 2019_07_09_072122) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "subcategories", force: :cascade do |t|
+    t.string "name"
+    t.integer "category_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
+    t.string "password_hash"
   end
 
 end

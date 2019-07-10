@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+  <html>
+
+    <head>
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+      <div class="topnav"> 
+      <div><a href="/users/home">HOME</a></div>
+       <div><a href="/posts/create_post">CREATE_POST</a></div>
+        <div><a href="/posts/my_posts">MY_POSTS</a></div>
+        <div id="profile"><a href='/sessions/logout'>SIGNOUT</a></div>
+        <div id="profile"><a href='/users/home'>WELCOME, <%=@user.name.capitalize%>!</a></div>
+      </div>
+
+<h3 style='align:center;padding:10px;margin:10px;'><%=@post.post_name.capitalize%></h3>
+
+<div class="form">
+<%= "Created: #{@post.created_at}" %>
+<br>
+<p><%=@post.description%><p>
+<br>
+<%= @post.location %>
+<br>
+<%= @post.payment %>
+<br>
+</div>
+
+</body>
+</html>

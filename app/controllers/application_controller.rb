@@ -15,6 +15,9 @@ class ApplicationController < Sinatra::Base
     erb :home
   end
 
+  get '/home' do
+    erb :home
+  end
   # Renders the sign up/registration page in app/views/registrations/signup.erb
   get '/registrations/signup' do
     erb :'/registrations/signup'
@@ -58,7 +61,31 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/posts/create_post' do
+    @user = User.find(session[:user_id])
     erb :'/posts/create_post'
+  end
+
+  post '/posts/create_post' do 
+    @user = User.find(session[:user_id])
+    newpost = Post.create(user_id: @user.id,subcategory_id: params["subcategory_id"],post_name: params["post_name"],description: params["description"],location: params["location"],payment: params["payment"])
+    # byebug
+    redirect '/posts/my_posts'
+  end
+
+  get '/posts/my_posts' do
+    @user = User.find(session[:user_id])
+    erb :'/posts/my_posts'
+  end
+
+  get '/posts/:id' do
+    @user = User.find(session[:user_id])
+    @post = Post.find( params[:id].to_i)
+    erb :'/posts/post'
+  end
+
+  get '/subcategories/subcategory_posts' do
+    @subcategory = Subcategory.find(session[:subcategory_id])
+    erb :'/subcategories/subcategory_posts'
   end
 
 end

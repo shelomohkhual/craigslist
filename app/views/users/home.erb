@@ -1,7 +1,7 @@
 
 
 
-<a href='/sessions/logout'>sign out</a>
+
 
 
 <!DOCTYPE html>
@@ -15,10 +15,12 @@
 
     <body>
       <div class="topnav"> 
+      <div><a href="/users/home">HOME</a></div>
         <div><a href="/posts/create_post">CREATE_POST</a></div>
-        <div><a href="/registrations/signup">SIGNUP</a></div>
-        <div><a href="/sessions/login">LOGIN</a></div>
-        <div id="profile">Welcome, <%#@user.name%>!</div>
+        <div><a href="/posts/my_posts">MY_POSTS</a></div>
+        <div id="profile"><a href='/sessions/logout'>SIGNOUT</a></div>
+        <div id="profile"><a href='/users/home'>WELCOME, <%=@user.name.capitalize%>!</a></div>
+        
       </div>
 
       
