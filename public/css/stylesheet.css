@@ -64,19 +64,7 @@ h2, h3 {
 .column li {
 
 }
-/* Clear floats after the columns */
-/* .row:after {
-  content: "";
-  display: table;
-  clear: both;
-} */
 
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-/* @media screen and (max-width:100px) {
-  .column {
-    width: 100%;
-  }
-} */
 
 .index {
   margin: auto;
